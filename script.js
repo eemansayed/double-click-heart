@@ -4,5 +4,14 @@ const times = document.querySelector("#times");
 let clickTime = 0;
 
 loveMe.addEventListener("click", (e) => {
-  console.log(123);
+  if (clickTime === 0) {
+    clickTime = new Date().getTime();
+  } else {
+    if (new Date().getTime() - clickTime < 800) {
+      createHeart(e);
+      clickTime = 0;
+    } else {
+      clickTime = new Date().getTime();
+    }
+  }
 });
